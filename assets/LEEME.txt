@@ -1,0 +1,4 @@
+Coloca aquí tus imágenes:
+  Bg-01.jpg  -> fondo del apartado de puntos
+  Img-01.jpg -> imagen de la promoción 2x1
+(Si usas .png o .webp, cambia la extensión en css/style.css, variables --bg-01 y --img-01.)

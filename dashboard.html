@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fourth Café — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- Librería externa: Chart.js 4.4.1 (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" aria-label="Menú">
+    <div class="logo">Fourth Café</div>
+    <button class="nav on" data-sec="dashboard">Dashboard</button>
+    <button class="nav" data-sec="clientes">Clientes</button>
+    <button class="nav" data-sec="puntos">Puntos y recompensas</button>
+    <button class="nav" data-sec="promos">Promociones</button>
+    <button class="nav" data-sec="reportes">Reportes</button>
+    <button class="nav" data-sec="config">Configuración</button>
+    <a class="side-foot" href="index.html">← App del cliente</a>
+  </nav>
+  <main class="main">
+    <div class="top"><h1 id="title">Dashboard de Fidelización</h1><span class="chip">Sucursal San Antonio · Admin</span></div>
+
+    <section id="sec-dashboard" class="sec grid" style="gap:20px">
+      <div class="grid g4" id="stats"></div>
+      <div class="grid g2">
+        <div class="panel"><h2>Crecimiento de clientes</h2><canvas id="chart" aria-label="Clientes de mayo a octubre"></canvas></div>
+        <div class="panel"><h2>Recompensas más populares</h2><div id="popular"></div></div>
+      </div>
+      <div class="grid g2">
+        <div class="panel"><h2>Actividad reciente</h2>
+          <table><thead><tr><th>Cliente</th><th>Actividad</th><th>Puntos</th><th>Estado</th></tr></thead><tbody id="activity"></tbody></table></div>
+        <div class="panel summary"><h2>Resumen de puntos y recompensas</h2>
+          <div><span>Puntos emitidos</span><b>89,430</b></div><div><span>Puntos canjeados</span><b>61,200</b></div>
+          <div><span>Recompensas entregadas</span><b>612</b></div><div><span>Transacciones del mes</span><b>3,486</b></div>
+          <button class="btn" style="margin-top:18px" id="history">Ver historial de transacciones</button></div>
+      </div>
+    </section>
+
+    <section id="sec-clientes" class="sec panel hidden"><h2>Clientes</h2>
+      <table><thead><tr><th>Cliente</th><th>Puntos</th><th>Última visita</th></tr></thead><tbody>
+      <tr><td>Alan</td><td>450</td><td>Hoy</td></tr><tr><td>María</td><td>820</td><td>Ayer</td></tr>
+      <tr><td>Carlos</td><td>130</td><td>Hace 3 días</td></tr><tr><td>Sofía</td><td>560</td><td>Hace 5 días</td></tr></tbody></table></section>
+    <section id="sec-puntos" class="sec panel hidden"><h2>Puntos y recompensas</h2>
+      <table><thead><tr><th>Recompensa</th><th>Costo</th><th>Canjes</th></tr></thead><tbody>
+      <tr><td>$10 de descuento</td><td>1,000 pts</td><td>275</td></tr><tr><td>Bebida gratis</td><td>800 pts</td><td>214</td></tr>
+      <tr><td>Postre gratis</td><td>600 pts</td><td>123</td></tr></tbody></table>
+      <button class="btn" style="margin-top:16px" data-toast="Recompensa nueva (demo)">Agregar recompensa</button></section>
+    <section id="sec-promos" class="sec panel hidden"><h2>Promociones</h2>
+      <table><thead><tr><th>Promoción</th><th>Vigencia</th><th>Estado</th></tr></thead><tbody>
+      <tr><td>2x1 en cafés</td><td>Esta semana</td><td><span class="tag">Activa</span></td></tr>
+      <tr><td>Doble de puntos en postres</td><td>Próximo mes</td><td><span class="tag red">Programada</span></td></tr></tbody></table>
+      <button class="btn" style="margin-top:16px" data-toast="Promoción creada (demo)">Crear promoción</button></section>
+    <section id="sec-reportes" class="sec panel hidden"><h2>Reportes</h2><p>Descarga resúmenes de ejemplo.</p>
+      <button class="btn" data-toast="Reporte mensual generado (demo)">Reporte mensual</button>
+      <button class="btn ghost" data-toast="Reporte de clientes generado (demo)">Reporte de clientes</button></section>
+    <section id="sec-config" class="sec panel hidden"><h2>Configuración</h2>
+      <p>1 punto por cada $1 de compra · Recompensa mínima: 1,000 puntos</p>
+      <button class="btn" data-toast="Cambios guardados">Guardar cambios</button></section>
+  </main>
+</div>
+<div id="modal-root"></div>
+<script src="js/app.js" defer></script>
+<script src="js/dashboard.js" defer></script>
+</body>
+</html>
